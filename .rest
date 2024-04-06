@@ -1,0 +1,54 @@
+// localhost requests:
+
+GET http://localhost:3000 HTTP/1.1
+GET http://localhost:3000/user HTTP/1.1
+GET http://localhost:3000/user/65a6f00841b1447f0e50264a HTTP/1.1
+GET http://localhost:3000/user/6611c975baccc96b104da7c2 HTTP/1.1
+
+
+POST http://localhost:3000/user HTTP/1.1 content-type: application/json
+
+{
+"username":"helloworld", "phone":"201-201-201"
+}
+
+PUT http://localhost:8080/contacts/6611c975baccc96b104da7c2 HTTP/1.1 content-type: application/json
+
+{
+"username":"brett222", "phone":"111-111-111"
+}
+
+DELETE http://localhost:8080/contacts/6611c975baccc96b104da7c2 HTTP/1.1
+
+// swagger:
+GET http://localhost:3000/api-docs/#/default/delete_contacts__id_ HTTP/1.1 
+
+
+// render:
+
+// swagger:
+GET https://webservices-tm6h.onrender.com/api-docs/#/default/get_ HTTP/1.1
+
+// default:
+GET https://webservices-tm6h.onrender.com/ HTTP/1.1
+
+//contacts:
+GET https://webservices-tm6h.onrender.com/contacts HTTP/1.1
+GET https://webservices-tm6h.onrender.com/contacts/65c54b5766ac2b37402945eb HTTP/1.1
+GET https://webservices-tm6h.onrender.com/contacts/65c54b5766ac2b37402945ed HTTP/1.1
+
+POST https://webservices-tm6h.onrender.com/contacts HTTP/1.1 content-type: application/json
+
+{
+"firstName":"Meghan", "lastName":"Beaver", "email":"mbeaver@test.com", "favoriteColor":"Brown", "birthday":"06/19/2000"
+}
+
+
+PUT https://webservices-tm6h.onrender.com/contacts/65c54b5766ac2b37402945eb HTTP/1.1 content-type: application/json
+
+{
+"firstName":"Brett", "lastName":"Collins", "email":"bcollins@gmail.com", "favoriteColor":"Green", "birthday":"12/12/2000"
+}
+
+DELETE https://webservices-tm6h.onrender.com/contacts/6220b775099269ff7b31ceab HTTP/1.1
+
