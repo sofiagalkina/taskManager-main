@@ -25,4 +25,7 @@ GET http://localhost:3000/api-docs/ HTTP/1.1
 
 
 // render:
+GET https://taskmanager-main.onrender.com HTTP/1.1
+//swagger on render
+GET https://taskmanager-main.onrender.com/api-docs HTTP/1.1
 
