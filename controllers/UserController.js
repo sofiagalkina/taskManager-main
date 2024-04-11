@@ -42,7 +42,7 @@ const getSingleUser = async (req, res, next) => {
   });
 };
 
-// Update existing user:
+// PUT update existing user:
 const updateUser = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
