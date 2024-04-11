@@ -2,13 +2,16 @@ const { ObjectId } = require('mongodb');
 const { body, validationResult } = require('express-validator');
 const mongodb = require('../db/connect');
 
-// validation middleware for addUser:
+// Validation middleware for addUser:
 const validateAddUser = [
   body('username').notEmpty().withMessage('Username is required'),
   body('phone').notEmpty().withMessage('Phone is required'),
+  body('password')
+    .notEmpty().withMessage('Password is required')
+    .isLength({ min: 6 }).withMessage('Password must be at least 6 characters long'),
 ];
 
-// validation middleware for updateUser:
+// Validation middleware for updateUser:
 const validateUpdateUser = [
   body('username').notEmpty().withMessage('Username is required'),
   body('phone').notEmpty().withMessage('Phone is required'),
@@ -55,6 +58,10 @@ const updateUser = async (req, res) => {
     phone: req.body.phone,
   };
 
+  if (req.body.password) {
+    user.password = req.body.password;
+  }
+
   const response = await mongodb
     .getDb()
     .db()
@@ -80,6 +87,7 @@ const addUser = async (req, res) => {
   const user = {
     username: req.body.username,
     phone: req.body.phone,
+    password: req.body.password,
   };
 
   const response = await mongodb
