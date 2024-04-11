@@ -70,7 +70,7 @@ const updateUser = async (req, res) => {
   }
 };
 
-// Add new user:
+// POST add new user:
 const addUser = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -107,7 +107,7 @@ const deleteUser = async (req, res) => {
     .deleteOne({ _id: userId }, true);
 
   if (response.deletedCount > 0) {
-    res.status(204).send();
+    res.status(200).send();
   } else {
     res
       .status(500)
